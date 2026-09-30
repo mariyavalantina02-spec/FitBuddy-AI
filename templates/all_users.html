@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+FitBuddy | Admin View
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="hero compact">
+
+
+    <p class="eyebrow">
+        ADMIN / COACH DASHBOARD
+    </p>
+
+
+    <h1>
+        All Users
+    </h1>
+
+
+    <p class="subtitle">
+
+        View user profiles and compare
+        original and updated workout plans.
+
+    </p>
+
+
+</section>
+
+
+{% if users %}
+
+
+<div class="table-wrap">
+
+
+<table>
+
+
+    <thead>
+
+        <tr>
+
+            <th>
+                User
+            </th>
+
+            <th>
+                Profile
+            </th>
+
+            <th>
+                Goal
+            </th>
+
+            <th>
+                Original Plan
+            </th>
+
+            <th>
+                Updated Plan
+            </th>
+
+        </tr>
+
+    </thead>
+
+
+    <tbody>
+
+
+    {% for user in users %}
+
+
+        {% set plan = plans.get(user.user_id) %}
+
+
+        <tr>
+
+
+            <td>
+
+                <strong>
+                    {{ user.username }}
+                </strong>
+
+                <br>
+
+                <small>
+                    {{ user.user_id }}
+                </small>
+
+            </td>
+
+
+            <td>
+
+                Age:
+                {{ user.age }}
+
+                <br>
+
+                Weight:
+                {{ user.weight }} kg
+
+                <br>
+
+                Intensity:
+                {{ user.intensity }}
+
+            </td>
+
+
+            <td>
+
+                {{ user.goal }}
+
+            </td>
+
+
+            <td>
+
+                {% if plan %}
+
+                <pre class="mini-plan">
+{{ plan.original_plan }}
+                </pre>
+
+                {% else %}
+
+                No plan
+
+                {% endif %}
+
+            </td>
+
+
+            <td>
+
+                {% if plan and plan.updated_plan %}
+
+                <pre class="mini-plan">
+{{ plan.updated_plan }}
+                </pre>
+
+                {% else %}
+
+                Not updated
+
+                {% endif %}
+
+            </td>
+
+
+        </tr>
+
+
+    {% endfor %}
+
+
+    </tbody>
+
+
+</table>
+
+
+</div>
+
+
+{% else %}
+
+
+<section class="card">
+
+    <h2>
+        No users yet
+    </h2>
+
+    <p>
+
+        Generate your first workout plan
+        from the home page.
+
+    </p>
+
+</section>
+
+
+{% endif %}
+
+
+{% endblock %}

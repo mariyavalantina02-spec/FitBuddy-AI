@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+FitBuddy | Create Plan
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="hero">
+
+    <p class="eyebrow">
+        AI FITNESS PLANNER
+    </p>
+
+
+    <h1>
+        Build a 7-day fitness plan
+        around your goal.
+    </h1>
+
+
+    <p class="subtitle">
+
+        Enter your fitness information
+        and let FitBuddy create a personalized
+        workout plan and nutrition tip.
+
+    </p>
+
+</section>
+
+
+{% if error %}
+
+<div class="alert error">
+
+    {{ error }}
+
+</div>
+
+{% endif %}
+
+
+<section class="card form-card">
+
+    <h2>
+        Your Fitness Profile
+    </h2>
+
+
+    <form
+        method="POST"
+        action="/generate-workout"
+    >
+
+
+        <div class="grid">
+
+
+            <!-- NAME -->
+
+            <label>
+
+                Name
+
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Enter your name"
+                    required
+                    minlength="2"
+                    maxlength="80"
+                >
+
+            </label>
+
+
+            <!-- USER ID -->
+
+            <label>
+
+                User ID
+
+                <input
+                    type="text"
+                    name="user_id"
+                    placeholder="user001"
+                    required
+                    pattern="[A-Za-z0-9_-]+"
+                >
+
+            </label>
+
+
+            <!-- AGE -->
+
+            <label>
+
+                Age
+
+                <input
+                    type="number"
+                    name="age"
+                    placeholder="25"
+                    required
+                    min="13"
+                    max="100"
+                >
+
+            </label>
+
+
+            <!-- WEIGHT -->
+
+            <label>
+
+                Weight (kg)
+
+                <input
+                    type="number"
+                    name="weight"
+                    placeholder="65"
+                    required
+                    min="20"
+                    max="500"
+                    step="0.1"
+                >
+
+            </label>
+
+
+            <!-- GOAL -->
+
+            <label>
+
+                Fitness Goal
+
+                <select
+                    name="goal"
+                    required
+                >
+
+                    <option value="weight loss">
+                        Weight Loss
+                    </option>
+
+                    <option value="muscle gain">
+                        Muscle Gain
+                    </option>
+
+                    <option value="general wellness">
+                        General Wellness
+                    </option>
+
+                    <option value="flexibility">
+                        Flexibility
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <!-- INTENSITY -->
+
+            <label>
+
+                Workout Intensity
+
+                <select
+                    name="intensity"
+                    required
+                >
+
+                    <option value="low">
+                        Low
+                    </option>
+
+                    <option
+                        value="medium"
+                        selected
+                    >
+                        Medium
+                    </option>
+
+                    <option value="high">
+                        High
+                    </option>
+
+                </select>
+
+            </label>
+
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="button primary"
+        >
+
+            Generate 7-Day Plan
+
+        </button>
+
+
+    </form>
+
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,715 @@
+:root {
+
+    --bg: #08111f;
+
+    --surface: #101c2e;
+
+    --surface-2: #17263d;
+
+    --text: #f1f5f9;
+
+    --muted: #9eacc0;
+
+    --accent: #63e6be;
+
+    --accent-blue: #4dabf7;
+
+    --danger: #ff8787;
+
+    --border: rgba(255,255,255,0.10);
+
+    --shadow:
+        0 20px 60px rgba(0,0,0,0.30);
+}
+
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    color: var(--text);
+
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at top right,
+            rgba(77,171,247,0.18),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at bottom left,
+            rgba(99,230,190,0.12),
+            transparent 35%
+        ),
+
+        var(--bg);
+
+}
+
+
+/* =========================================
+HEADER
+========================================= */
+
+.site-header {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 10;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding:
+        18px
+        clamp(18px, 5vw, 70px);
+
+    background:
+        rgba(8,17,31,0.90);
+
+    backdrop-filter:
+        blur(12px);
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+.brand {
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 1.4rem;
+
+    font-weight: 900;
+
+}
+
+
+nav {
+
+    display: flex;
+
+    gap: 20px;
+
+}
+
+
+nav a {
+
+    color: var(--muted);
+
+    text-decoration: none;
+
+}
+
+
+nav a:hover {
+
+    color: var(--text);
+
+}
+
+
+/* =========================================
+CONTAINER
+========================================= */
+
+.container {
+
+    width:
+        min(
+            1120px,
+            calc(100% - 32px)
+        );
+
+    margin: auto;
+
+    padding:
+        50px 0 80px;
+
+}
+
+
+/* =========================================
+HERO
+========================================= */
+
+.hero {
+
+    padding:
+        30px 0 40px;
+
+}
+
+
+.hero.compact {
+
+    padding-bottom: 25px;
+
+}
+
+
+h1 {
+
+    margin:
+        5px 0 15px;
+
+    max-width: 850px;
+
+    font-size:
+        clamp(
+            2.3rem,
+            6vw,
+            4.5rem
+        );
+
+    line-height: 1.05;
+
+}
+
+
+h2 {
+
+    margin-top: 0;
+
+}
+
+
+.subtitle {
+
+    max-width: 750px;
+
+    color: var(--muted);
+
+    font-size: 1.08rem;
+
+    line-height: 1.7;
+
+}
+
+
+.eyebrow {
+
+    color: var(--accent);
+
+    font-size: .78rem;
+
+    font-weight: 900;
+
+    letter-spacing: .14em;
+
+}
+
+
+/* =========================================
+CARDS
+========================================= */
+
+.card {
+
+    margin:
+        22px 0;
+
+    padding:
+        clamp(
+            22px,
+            4vw,
+            36px
+        );
+
+    background:
+        rgba(16,28,46,0.90);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 22px;
+
+    box-shadow:
+        var(--shadow);
+
+}
+
+
+.form-card {
+
+    max-width: 900px;
+
+}
+
+
+/* =========================================
+FORM
+========================================= */
+
+.grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
+
+    gap: 20px;
+
+}
+
+
+label {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    color: var(--muted);
+
+    font-weight: 700;
+
+}
+
+
+input,
+select,
+textarea {
+
+    width: 100%;
+
+    padding:
+        13px 14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 12px;
+
+    background:
+        var(--surface-2);
+
+    color:
+        var(--text);
+
+    font:
+        inherit;
+
+    outline: none;
+
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+
+    border-color:
+        var(--accent-blue);
+
+}
+
+
+textarea {
+
+    min-height: 140px;
+
+    resize: vertical;
+
+}
+
+
+/* =========================================
+BUTTON
+========================================= */
+
+.button {
+
+    margin-top: 24px;
+
+    border: 0;
+
+    border-radius: 12px;
+
+    padding:
+        13px 22px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+}
+
+
+.primary {
+
+    background:
+        var(--accent);
+
+    color:
+        #06131a;
+
+}
+
+
+.primary:hover {
+
+    filter:
+        brightness(1.08);
+
+}
+
+
+/* =========================================
+ALERT
+========================================= */
+
+.alert {
+
+    padding:
+        14px 18px;
+
+    margin:
+        20px 0;
+
+    border-radius:
+        12px;
+
+    border:
+        1px solid var(--border);
+
+}
+
+
+.success {
+
+    background:
+        rgba(99,230,190,0.12);
+
+}
+
+
+.error {
+
+    background:
+        rgba(255,135,135,0.12);
+
+    color:
+        #ffd0d0;
+
+}
+
+
+/* =========================================
+PROFILE
+========================================= */
+
+.profile-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            5,
+            1fr
+        );
+
+    gap: 12px;
+
+    margin-top: 24px;
+
+}
+
+
+.profile-grid span {
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    background:
+        var(--surface-2);
+
+    color:
+        var(--muted);
+
+}
+
+
+.profile-grid strong {
+
+    display: block;
+
+    color:
+        var(--text);
+
+    font-size:
+        .75rem;
+
+    text-transform:
+        uppercase;
+
+    margin-bottom: 5px;
+
+}
+
+
+/* =========================================
+PLAN
+========================================= */
+
+.plan {
+
+    white-space:
+        pre-wrap;
+
+    overflow-x:
+        auto;
+
+    padding:
+        20px;
+
+    border-radius:
+        14px;
+
+    background:
+        #050c16;
+
+    color:
+        #dce8f8;
+
+    line-height:
+        1.6;
+
+    font-family:
+        Consolas,
+        monospace;
+
+}
+
+
+.tip-card {
+
+    border-color:
+        rgba(
+            99,
+            230,
+            190,
+            .25
+        );
+
+}
+
+
+.tip-card p:last-child {
+
+    color:
+        #dce8f8;
+
+    line-height:
+        1.7;
+
+}
+
+
+/* =========================================
+TABLE
+========================================= */
+
+.table-wrap {
+
+    overflow:
+        auto;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        18px;
+
+    box-shadow:
+        var(--shadow);
+
+}
+
+
+table {
+
+    width:
+        100%;
+
+    min-width:
+        1000px;
+
+    border-collapse:
+        collapse;
+
+    background:
+        rgba(
+            16,
+            28,
+            46,
+            .92
+        );
+
+}
+
+
+th,
+td {
+
+    padding:
+        16px;
+
+    text-align:
+        left;
+
+    vertical-align:
+        top;
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+th {
+
+    color:
+        var(--accent);
+
+}
+
+
+td {
+
+    color:
+        var(--muted);
+
+}
+
+
+.mini-plan {
+
+    max-height:
+        350px;
+
+    overflow:
+        auto;
+
+    white-space:
+        pre-wrap;
+
+    font-size:
+        .78rem;
+
+    color:
+        #dce8f8;
+
+}
+
+
+/* =========================================
+FOOTER
+========================================= */
+
+footer {
+
+    padding:
+        25px;
+
+    text-align:
+        center;
+
+    color:
+        var(--muted);
+
+    border-top:
+        1px solid var(--border);
+
+    font-size:
+        .85rem;
+
+}
+
+
+/* =========================================
+MOBILE
+========================================= */
+
+@media (max-width: 760px) {
+
+    .site-header {
+
+        align-items:
+            flex-start;
+
+        gap: 15px;
+
+    }
+
+
+    nav {
+
+        flex-wrap:
+            wrap;
+
+        justify-content:
+            flex-end;
+
+        gap: 10px;
+
+    }
+
+
+    .grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .profile-grid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+
+    }
+
+
+    .container {
+
+        padding-top:
+            30px;
+
+    }
+
+}
